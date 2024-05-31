@@ -1,36 +1,29 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import "./app.css";
+import { Animal } from "./components/Animal";
+import { useAnimalSearch } from "./hooks/UseAnimalSearch";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { search, animals } = useAnimalSearch();
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <p>New Content :)</p>
-    </>
-  )
+    <main className="flex flex-col items-center text-center container gap-2 pt-10">
+      <h1 className="text-lg">Animal API</h1>
+      <input
+      className="max-w-32 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        type="text"
+        placeholder="Search"
+        onChange={(e) => {
+          search(e.target.value);
+        }}
+      />
+      <ul>
+        {animals &&
+          animals.map((animal) => <Animal key={animal.id} {...animal} />)}
+      </ul>
+      <p>Total Number of Animals: {animals.length} </p>
+      {animals.length === 0 && "No Animals"}
+    </main>
+  );
 }
 
-export default App
+export default App;
