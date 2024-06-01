@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "fmt": "prettier --write \"src/**/*.{js, jsx}\"",
+    "fmt": "prettier --write \"src/**/*.{js,jsx}\"",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },

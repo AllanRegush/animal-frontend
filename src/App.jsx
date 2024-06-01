@@ -9,7 +9,7 @@ function App() {
     <main className="flex flex-col items-center text-center container gap-2 pt-10">
       <h1 className="text-lg">Animal API</h1>
       <input
-      className="max-w-32 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
+        className="max-w-32 shadow appearance-none border rounded py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
         type="text"
         placeholder="Search"
         onChange={(e) => {
